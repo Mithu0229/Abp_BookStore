@@ -22,6 +22,19 @@ public class BookStoreMenuContributor : IMenuContributor
     {
         var administration = context.Menu.GetAdministration();
         var l = context.GetLocalizer<BookStoreResource>();
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                "BooksStore",
+                l["Menu:BookStore"],
+                icon: "fa fa-book"
+         ).AddItem(
+        new ApplicationMenuItem(
+            "BooksStore.Books",
+            l["Menu:Books"],
+            url: "/Books"
+        ))
+         );
+
 
         context.Menu.Items.Insert(
             0,
